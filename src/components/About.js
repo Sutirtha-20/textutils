@@ -71,7 +71,7 @@ export default function () {
                 </div>
             </div>
             <div className="container">
-            <button type="button" class="btn btn-primary my-2" onClick={toggleStyle}>{btnText}</button>
+            <button type="button" className="btn btn-primary my-2" onClick={toggleStyle}>{btnText}</button>
             </div>
             
         </div>
