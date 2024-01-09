@@ -15,6 +15,13 @@ export default function TextForm(props) {
         setText(newText);
     }
 
+    const handleCopy = () =>{
+        let text = document.getElementById('myBox');
+        text.select();
+        // document. execCommand('copy');
+        navigator.clipboard.writeText(text.value);
+    }
+
     const handleOnChange = (event) =>{
         console.log("on change");
         setText(event.target.value);
@@ -31,6 +38,7 @@ export default function TextForm(props) {
                 <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
                 <button className="btn btn-primary my-2" onClick={handleUpClick}>Convert to Uppercase</button>
                 <button className="btn btn-primary my-2 mx-2" onClick={handleLowClick}>Convert to Lowercase</button>
+                <button className="btn btn-primary my-2 mx-2" onClick={handleCopy}>Copy to clipboard</button>
             </div>
         </div>
         <div className="container my-3">
