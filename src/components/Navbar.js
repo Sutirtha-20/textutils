@@ -1,10 +1,19 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 export default function (props) {
   return (
+    <Router>
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">{props.title}</a>
+          <Link className="navbar-brand" to="/">{props.title}</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -14,7 +23,7 @@ export default function (props) {
                 <a className="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">{props.aboutText}</a>
+                <a className="nav-link" href="/about">{props.aboutText}</a>
               </li>
             </ul>
             <div className="form-check form-switch">
@@ -24,6 +33,8 @@ export default function (props) {
           </div>
         </div>
       </nav>
+      </Router>
+      
   )
 }
 
