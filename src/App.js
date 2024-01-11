@@ -6,9 +6,6 @@ import TextForm from './components/TextForm';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
-
-// let name = "suti";
-
 function App() {
 
   const [mode, setMode] = useState('light');  //usestate for light/dark mode
