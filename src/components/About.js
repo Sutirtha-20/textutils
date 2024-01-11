@@ -1,33 +1,38 @@
 import React, { useState } from 'react'
 
-export default function () {
+export default function (props) {
 
-    const [myStyle,setMyStyle] = useState(
-    {
-        color: 'white',
-        backgroundColor: 'black',
-        border: '1px solid white'
-    });
+    // const [myStyle,setMyStyle] = useState(
+    // {
+    //     color: 'white',
+    //     backgroundColor: 'black',
+    //     border: '1px solid white'
+    // });
+
+    let myStyle = {
+        color: props.mode ==='dark'?'white':'black',
+        backgroundColor: props.mode === 'dark'?'black':'white',
+    }
 
     const [btnText, setBtnText] = useState('Enable dark mode')
 
-    let toggleStyle = () =>{
-        if(myStyle.color==='white'){
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtnText("Enable dark mode")
-        }
-        else{
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
-                border: '1px solid white'
-            })
-            setBtnText("Enable light mode")
-        }
-    }
+    // let toggleStyle = () =>{
+    //     if(myStyle.color==='white'){
+    //         setMyStyle({
+    //             color: 'black',
+    //             backgroundColor: 'white'
+    //         })
+    //         setBtnText("Enable dark mode")
+    //     }
+    //     else{
+    //         setMyStyle({
+    //             color: 'white',
+    //             backgroundColor: 'black',
+    //             border: '1px solid white'
+    //         })
+    //         setBtnText("Enable light mode")
+    //     }
+    // }
 
     return (
         <div className="container" style={myStyle}>
@@ -69,9 +74,6 @@ export default function () {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="container">
-            <button type="button" className="btn btn-primary my-2" onClick={toggleStyle}>{btnText}</button>
             </div>
             
         </div>

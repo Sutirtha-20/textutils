@@ -3,16 +3,11 @@ import About from './components/About';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 
-let name = "suti";
+// let name = "suti";
 
 function App() {
 
@@ -30,7 +25,7 @@ function App() {
     },2000);
   }
 
-  let toggleMode = () => {
+  let toggleMode = (cls) => {
     if(mode==='light'){
       setMode('dark');
       document.body.style.backgroundColor= 'grey';
@@ -50,17 +45,12 @@ function App() {
       <Navbar title="Textutils2" aboutText="les us say this is props" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
       <div className="container">
-      <Switch>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/">
-            <TextForm heading="This is a text area" mode={mode} showAlert={showalert}/>
-          </Route>
-        </Switch> 
+      <Routes>
+          <Route exact path="/about" element={<About mode={mode} />}/>
+          <Route exact path="/" element={<TextForm heading="This is a text area" mode={mode} showAlert={showalert}/>}/>
+        </Routes> 
       </div>
-      </Router>
-      
+      </Router>   
     </>
 
   );
